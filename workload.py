@@ -27,7 +27,7 @@ def evaluate_accuracy(model, data_loader, device):
 def train_resnet(model_name, dataset_name, num_epochs, batch_size, learning_rate, use_pretrained=False, data_percentage=1.0):
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     print(f"Using device: {device}")
-    print(f"Using {model_name} with {dataset_name} dataset with batch size {batch_size}.")
+    print(f"Using {model_name} with {dataset_name} dataset with batch size {batch_size}. Pretrained")
     transform = transforms.Compose([
         transforms.ToTensor(),
         transforms.RandomHorizontalFlip(),
@@ -85,6 +85,12 @@ ARGS = [
     {'model_name': 'resnet50', 'dataset_name': 'CIFAR10', 'num_epochs': 15, 'batch_size': 128, 'learning_rate': 0.001, 'use_pretrained': True, 'data_percentage': 1.0},
     {'model_name': 'resnet50', 'dataset_name': 'CIFAR10', 'num_epochs': 15, 'batch_size': 128, 'learning_rate': 0.001, 'use_pretrained': True, 'data_percentage': 0.5},
     {'model_name': 'resnet50', 'dataset_name': 'CIFAR10', 'num_epochs': 15, 'batch_size': 128, 'learning_rate': 0.001, 'use_pretrained': True, 'data_percentage': 0.25}
+    {'model_name': 'resnet50', 'dataset_name': 'CIFAR100', 'num_epochs': 15, 'batch_size': 128, 'learning_rate': 0.001, 'use_pretrained': False, 'data_percentage': 1.0},
+    {'model_name': 'resnet50', 'dataset_name': 'CIFAR100', 'num_epochs': 15, 'batch_size': 128, 'learning_rate': 0.001, 'use_pretrained': False, 'data_percentage': 0.5},
+    {'model_name': 'resnet50', 'dataset_name': 'CIFAR100', 'num_epochs': 15, 'batch_size': 128, 'learning_rate': 0.001, 'use_pretrained': False, 'data_percentage': 0.25}
+    {'model_name': 'resnet50', 'dataset_name': 'CIFAR100', 'num_epochs': 15, 'batch_size': 128, 'learning_rate': 0.001, 'use_pretrained': True, 'data_percentage': 1.0},
+    {'model_name': 'resnet50', 'dataset_name': 'CIFAR100', 'num_epochs': 15, 'batch_size': 128, 'learning_rate': 0.001, 'use_pretrained': True, 'data_percentage': 0.5},
+    {'model_name': 'resnet50', 'dataset_name': 'CIFAR100', 'num_epochs': 15, 'batch_size': 128, 'learning_rate': 0.001, 'use_pretrained': True, 'data_percentage': 0.25
 ]
 
 
