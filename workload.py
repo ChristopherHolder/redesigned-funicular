@@ -54,7 +54,7 @@ def train_resnet(model_name, dataset_name, num_epochs, batch_size, learning_rate
     val_loader = DataLoader(val_dataset, batch_size=batch_size, shuffle=False)
 
     ModelClass = getattr(torchvision.models, model_name)
-    model = ModelClass(weights=ResNet50_Weights.DEFAULT)
+    model = ModelClass(weights=None)
     num_classes = 10 if dataset_name == 'CIFAR10' else 100
     model.fc = nn.Linear(model.fc.in_features, num_classes)
     model = model.to(device)
