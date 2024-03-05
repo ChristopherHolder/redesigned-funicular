@@ -81,17 +81,18 @@ def train_resnet(model_name, dataset_name, num_epochs, batch_size, learning_rate
 ARGS = [
     {'model_name': 'resnet50', 'dataset_name': 'CIFAR10', 'num_epochs': 15, 'batch_size': 128, 'learning_rate': 0.001, 'use_pretrained': False, 'data_percentage': 1.0},
     {'model_name': 'resnet50', 'dataset_name': 'CIFAR10', 'num_epochs': 15, 'batch_size': 128, 'learning_rate': 0.001, 'use_pretrained': False, 'data_percentage': 0.5},
-    {'model_name': 'resnet50', 'dataset_name': 'CIFAR10', 'num_epochs': 15, 'batch_size': 128, 'learning_rate': 0.001, 'use_pretrained': False, 'data_percentage': 0.25}
+    {'model_name': 'resnet50', 'dataset_name': 'CIFAR10', 'num_epochs': 15, 'batch_size': 128, 'learning_rate': 0.001, 'use_pretrained': False, 'data_percentage': 0.25},
     {'model_name': 'resnet50', 'dataset_name': 'CIFAR10', 'num_epochs': 15, 'batch_size': 128, 'learning_rate': 0.001, 'use_pretrained': True, 'data_percentage': 1.0},
     {'model_name': 'resnet50', 'dataset_name': 'CIFAR10', 'num_epochs': 15, 'batch_size': 128, 'learning_rate': 0.001, 'use_pretrained': True, 'data_percentage': 0.5},
-    {'model_name': 'resnet50', 'dataset_name': 'CIFAR10', 'num_epochs': 15, 'batch_size': 128, 'learning_rate': 0.001, 'use_pretrained': True, 'data_percentage': 0.25}
+    {'model_name': 'resnet50', 'dataset_name': 'CIFAR10', 'num_epochs': 15, 'batch_size': 128, 'learning_rate': 0.001, 'use_pretrained': True, 'data_percentage': 0.25},
     {'model_name': 'resnet50', 'dataset_name': 'CIFAR100', 'num_epochs': 15, 'batch_size': 128, 'learning_rate': 0.001, 'use_pretrained': False, 'data_percentage': 1.0},
     {'model_name': 'resnet50', 'dataset_name': 'CIFAR100', 'num_epochs': 15, 'batch_size': 128, 'learning_rate': 0.001, 'use_pretrained': False, 'data_percentage': 0.5},
-    {'model_name': 'resnet50', 'dataset_name': 'CIFAR100', 'num_epochs': 15, 'batch_size': 128, 'learning_rate': 0.001, 'use_pretrained': False, 'data_percentage': 0.25}
+    {'model_name': 'resnet50', 'dataset_name': 'CIFAR100', 'num_epochs': 15, 'batch_size': 128, 'learning_rate': 0.001, 'use_pretrained': False, 'data_percentage': 0.25},
     {'model_name': 'resnet50', 'dataset_name': 'CIFAR100', 'num_epochs': 15, 'batch_size': 128, 'learning_rate': 0.001, 'use_pretrained': True, 'data_percentage': 1.0},
     {'model_name': 'resnet50', 'dataset_name': 'CIFAR100', 'num_epochs': 15, 'batch_size': 128, 'learning_rate': 0.001, 'use_pretrained': True, 'data_percentage': 0.5},
-    {'model_name': 'resnet50', 'dataset_name': 'CIFAR100', 'num_epochs': 15, 'batch_size': 128, 'learning_rate': 0.001, 'use_pretrained': True, 'data_percentage': 0.25
+    {'model_name': 'resnet50', 'dataset_name': 'CIFAR100', 'num_epochs': 15, 'batch_size': 128, 'learning_rate': 0.001, 'use_pretrained': True, 'data_percentage': 0.25}
 ]
+
 
 
 for arg in ARGS:
