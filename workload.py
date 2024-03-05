@@ -27,7 +27,7 @@ def evaluate_accuracy(model, data_loader, device):
 def train_resnet(model_name, dataset_name, num_epochs, batch_size, learning_rate, use_pretrained=False, data_percentage=1.0):
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     print(f"Using device: {device}")
-    print(f"Using {model_name} with {dataset_name} dataset with batch size {batch_size}. Pretrained")
+    print(f"Using {model_name} with {dataset_name} dataset with batch size {batch_size}. Pretrained {use_pretrained}. Data percentage {data_percentage*100}%.")
     transform = transforms.Compose([
         transforms.ToTensor(),
         transforms.RandomHorizontalFlip(),
