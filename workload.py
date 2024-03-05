@@ -78,5 +78,16 @@ def train_resnet(model_name, dataset_name, num_epochs, batch_size, learning_rate
     training_time = end_time - start_time
     print(f"Total training time: {training_time:.2f} seconds")
 
-train_resnet(model_name='resnet18', dataset_name='CIFAR10', num_epochs=10, 
-             batch_size=128, learning_rate=0.001, use_pretrained=False, data_percentage=1.0)
+ARGS = [
+    {'model_name': 'resnet50', 'dataset_name': 'CIFAR10', 'num_epochs': 15, 'batch_size': 128, 'learning_rate': 0.001, 'use_pretrained': False, 'data_percentage': 1.0},
+    {'model_name': 'resnet50', 'dataset_name': 'CIFAR10', 'num_epochs': 15, 'batch_size': 128, 'learning_rate': 0.001, 'use_pretrained': False, 'data_percentage': 0.5},
+    {'model_name': 'resnet50', 'dataset_name': 'CIFAR10', 'num_epochs': 15, 'batch_size': 128, 'learning_rate': 0.001, 'use_pretrained': False, 'data_percentage': 0.25}
+    {'model_name': 'resnet50', 'dataset_name': 'CIFAR10', 'num_epochs': 15, 'batch_size': 128, 'learning_rate': 0.001, 'use_pretrained': True, 'data_percentage': 1.0},
+    {'model_name': 'resnet50', 'dataset_name': 'CIFAR10', 'num_epochs': 15, 'batch_size': 128, 'learning_rate': 0.001, 'use_pretrained': True, 'data_percentage': 0.5},
+    {'model_name': 'resnet50', 'dataset_name': 'CIFAR10', 'num_epochs': 15, 'batch_size': 128, 'learning_rate': 0.001, 'use_pretrained': True, 'data_percentage': 0.25}
+]
+
+
+for arg in ARGS:
+    train_resnet(**arg)
+    print()  # Print a new line between experiments
