@@ -2,6 +2,7 @@ import torch
 import torch.nn as nn
 import torchvision
 import torchvision.transforms as transforms
+from torchvision.models import ResNet50_Weights
 from torch.utils.data import Subset, DataLoader
 from tqdm import tqdm
 import numpy as np
@@ -29,11 +30,14 @@ def train_resnet(model_name, dataset_name, num_epochs, batch_size, learning_rate
     print(f"Using device: {device}")
     print(f"Using {model_name} with {dataset_name} dataset with batch size {batch_size}.  Data percentage {data_percentage*100}%.")
     transform = transforms.Compose([
-        transforms.ToTensor(),
-        transforms.RandomHorizontalFlip(),
-        transforms.RandomCrop(32, padding=4),
-        transforms.Normalize((0.4914, 0.4822, 0.4465), (0.2023, 0.2154, 0.2024))
+        transforms.ToTensor()
     ])
+    # transform = transforms.Compose([
+    #     transforms.ToTensor(),
+    #     transforms.RandomHorizontalFlip(),
+    #     transforms.RandomCrop(32, padding=4),
+    #     transforms.Normalize((0.4914, 0.4822, 0.4465), (0.2023, 0.2154, 0.2024))
+    # ])
 
     DatasetClass = getattr(torchvision.datasets, dataset_name)
     train_dataset_full = DatasetClass(root='./data', train=True, download=True, transform=transform)
@@ -49,7 +53,7 @@ def train_resnet(model_name, dataset_name, num_epochs, batch_size, learning_rate
     val_loader = DataLoader(val_dataset, batch_size=batch_size, shuffle=False)
 
     ModelClass = getattr(torchvision.models, model_name)
-    model = ModelClass(pretrained=use_pretrained)
+    model = ModelClass(weights=ResNet50_Weights.DEFAULT)
     num_classes = 10 if dataset_name == 'CIFAR10' else 100
     model.fc = nn.Linear(model.fc.in_features, num_classes)
     model = model.to(device)
