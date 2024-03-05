@@ -81,6 +81,11 @@ def train_resnet(model_name, dataset_name, num_epochs, batch_size, learning_rate
 
     end_time = time.time()
     training_time = end_time - start_time
+
+
+    with open('results.csv', 'a') as f:
+        f.write(f"{model_name},{dataset_name},{num_epochs},{learning_rate},{data_percentage},{test_accuracy},{training_time}\n")
+
     print(f"Total training time: {training_time:.2f} seconds")
 
 ARGS = [
